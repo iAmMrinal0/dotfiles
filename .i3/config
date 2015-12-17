@@ -96,10 +96,10 @@ set $tag3 "3: web"
 set $tag4 "4: music"
 
 # switch to workspace
-bindsym $mod+1 workspace 1 $tag1
-bindsym $mod+2 workspace 2 $tag2
-bindsym $mod+3 workspace 3 $tag3
-bindsym $mod+4 workspace 4 $tag4
+bindsym $mod+1 workspace $tag1
+bindsym $mod+2 workspace $tag2
+bindsym $mod+3 workspace $tag3
+bindsym $mod+4 workspace $tag4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -108,10 +108,10 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1 $tag1; workspace 1 $tag1
-bindsym $mod+Shift+2 move container to workspace 2 $tag2; workspace 2 $tag2
-bindsym $mod+Shift+3 move container to workspace 3 $tag3; workspace 3 $tag3
-bindsym $mod+Shift+4 move container to workspace 4 $tag4; workspace 4 $tag4
+bindsym $mod+Shift+1 move container to workspace $tag1; workspace $tag1
+bindsym $mod+Shift+2 move container to workspace $tag2; workspace $tag2
+bindsym $mod+Shift+3 move container to workspace $tag3; workspace $tag3
+bindsym $mod+Shift+4 move container to workspace $tag4; workspace $tag4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -179,9 +179,11 @@ exec --no-startup-id nm-applet
 exec --no-startup-id feh --bg-center ~/Pictures/noise-texture.png
 exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id numlockx on
+exec --no-startup-id xset -b &
+exec --no-startup-id pactl set-sink-volume 0 15% &
 exec --no-startup-id rescuetime
-exec --no-startup-id i3-msg 'workspace 3 $tag3; exec google-chrome-stable'
-exec --no-startup-id i3-msg 'workspace 4 $tag4; exec google-chrome-stable http://epicmusictime.com'
+exec --no-startup-id i3-msg 'workspace $tag3; exec google-chrome-stable'
+exec --no-startup-id i3-msg 'workspace $tag4; exec google-chrome-stable http://epicmusictime.com'
 
 # Custom KeyBinds
 bindsym Control+mod1+l exec zsh ~/.i3/i3lock.sh
