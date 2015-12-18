@@ -186,10 +186,10 @@ exec --no-startup-id pactl set-sink-volume 0 15% &
 exec --no-startup-id rescuetime
 exec --no-startup-id compton -f
 exec --no-startup-id 'workspace $tag3; exec google-chrome-stable'
-exec --no-startup-id 'workspace $tag4; exec google-chrome-stable http://epicmusictime.com'
 
 # Custom KeyBinds
-bindsym Control+mod1+l exec zsh ~/.i3/i3lock.sh
+#bindsym Control+mod1+l exec zsh ~/.i3/i3lock.sh
+bindsym Control+mod1+l exec zsh $HOME/.bin/scripts/lock.sh $HOME/Pictures/lock.png
 bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
 
 # Pulse Audio controls
