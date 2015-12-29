@@ -7,3 +7,5 @@ echo ".i3 done"
 echo "Starting .bin folder"
 cp -R $HOME/.bin/ $HOME/dotfiles/
 echo ".bin done"
+cp $HOME/.zshrc $HOME/dotfiles/
+echo "zshrc done"
