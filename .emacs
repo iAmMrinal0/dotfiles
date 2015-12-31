@@ -18,14 +18,17 @@
     (unless (package-installed-p package)
       (package-install package)))
       myPackages)
+(setq make-backup-files nil)
+(defalias 'yes-or-no-p 'y-or-n-p)
 (global-linum-mode 1)
+(column-number-mode 1)
+(electric-pair-mode 1)
 
 ;; Python config
 (elpy-enable)
 
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
-
 
 ;; use flycheck not flymake with elpy
 (when (require 'flycheck nil t)
@@ -35,6 +38,7 @@
 ;; enable autopep8 formatting on save
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
