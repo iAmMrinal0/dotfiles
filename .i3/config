@@ -37,7 +37,7 @@ set $text-color     #f3f4f5
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+bindsym $mod+d exec rofi -show run -lines 4 -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -126,6 +126,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # assign to workspaces
 assign [class="jetbrains-pycharm-ce"] $tag2
+assign [class="Emacs"] $tag2
 assign [class="Rhythmbox"] $tag4
 assign [class="Vlc"] $tag4
 
@@ -195,6 +196,7 @@ exec --no-startup-id xset -b &
 exec --no-startup-id pactl set-sink-volume 0 15% &
 exec --no-startup-id rescuetime
 exec --no-startup-id compton -f
+exec --no-startup-id transmission-gtk --minimized
 exec --no-startup-id i3-msg 'workspace $tag3; exec google-chrome'
 
 # Custom KeyBinds

@@ -50,7 +50,8 @@
  '(ansi-color-names-vector
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#e090d7" "#8cc4ff" "#eeeeec"])
  '(cursor-type (quote bar))
- '(custom-enabled-themes (quote (wheatgrass))))
+ '(custom-enabled-themes (quote (wheatgrass)))
+ '(python-shell-interpreter "python3"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

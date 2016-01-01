@@ -9,3 +9,5 @@ cp -R $HOME/.bin/ $HOME/dotfiles/
 echo ".bin done"
 cp $HOME/.zshrc $HOME/dotfiles/
 echo "zshrc done"
+cp $HOME/.emacs $HOME/dotfiles/
+echo ".emacs done"
