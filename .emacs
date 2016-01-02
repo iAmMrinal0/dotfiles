@@ -14,6 +14,7 @@
     flx-ido
     flycheck
     jedi
+    magit
     projectile
     py-autopep8
     web-mode))
@@ -28,6 +29,7 @@
 (column-number-mode 1)
 (electric-pair-mode 1)
 (projectile-global-mode)
+(global-set-key (kbd "C-x t") 'ansi-term)
 
 ;; flx-ido
 (require 'flx-ido)
@@ -70,6 +72,10 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+
+;; magit
+(require 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
