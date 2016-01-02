@@ -11,8 +11,12 @@
 ;; Basic configuration
 (defvar myPackages
   '(elpy
+    flx-ido
     flycheck
-    py-autopep8))
+    jedi
+    projectile
+    py-autopep8
+    web-mode))
 
 (mapc #'(lambda (package)
     (unless (package-installed-p package)
@@ -23,6 +27,16 @@
 (global-linum-mode 1)
 (column-number-mode 1)
 (electric-pair-mode 1)
+(projectile-global-mode)
+
+;; flx-ido
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
 
 ;; Python config
 (elpy-enable)
@@ -39,6 +53,23 @@
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
+;; uniquify for distinguishing between same filenames in different projects
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'reverse)
+(setq uniquify-separator "/")
+(setq uniquify-after-kill-buffer-p t)
+(setq uniquify-ignore-buffers-re "^\\*")
+
+;; web-mode
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
