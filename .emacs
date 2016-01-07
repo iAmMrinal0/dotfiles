@@ -11,7 +11,7 @@
  '(custom-enabled-themes (quote (wheatgrass)))
  '(custom-safe-themes
    (quote
-    ("79a3f477ac0cb4a106f78b6109614e991564a5c2467c36e6e854d4bc1102e178" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
+    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "79a3f477ac0cb4a106f78b6109614e991564a5c2467c36e6e854d4bc1102e178" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(python-shell-interpreter "python3")
  '(sml/mode-width
    (if
@@ -115,6 +115,7 @@
 (setq powerline-default-separator 'arrow)
 (setq sml/theme 'powerline)
 (sml/setup)
+(setq sml/mode-width 0)
 
 (setq make-backup-files nil)
 (defalias 'yes-or-no-p 'y-or-n-p)
