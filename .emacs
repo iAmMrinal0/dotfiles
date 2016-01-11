@@ -83,6 +83,18 @@
  ;; If there is more than one, they won't work right.
  )
 
+(setq myPackages
+  '(elpy
+    flx-ido
+    flycheck
+    jedi
+    magit
+    projectile
+    py-autopep8
+    smart-mode-line
+    smart-mode-line-powerline-theme
+    web-mode))
+
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
@@ -92,18 +104,6 @@
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
-
-;; Basic configuration
-(defvar myPackages
-  '(elpy
-    flx-ido
-    flycheck
-    jedi
-    magit
-    projectile
-    py-autopep8
-    smart-mode-line
-    smart-mode-line-powerline-theme))
 
 (mapc #'(lambda (package)
     (unless (package-installed-p package)
@@ -160,3 +160,18 @@
 ;; magit
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
+
+;; web-mode
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(setq web-mode-engines-alist '(("django" . "\\.html\\'")))
+
+(setq-default indent-tabs-mode nil)
+(setq web-mode-markup-indent-offset 4)
+(setq web-mode-code-indent-offset 4)
+(setq web-mode-css-indent-offset 4)
+(setq web-mode-js-indent-offset 0)
+(setq web-mode-script-padding 0)
+(setq web-mode-enable-auto-expanding t)
+(setq web-mode-enable-css-colorization t)
+(setq web-mode-enable-auto-pairing nil)
