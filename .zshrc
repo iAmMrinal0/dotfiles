@@ -89,3 +89,5 @@ alias dac="deactivate"
 export export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+
+export TERM=xterm-256color

@@ -218,6 +218,12 @@ bindsym Control+$mod+mod1+Down exec pactl set-sink-volume 0 -- -5%
 bindsym Control+$mod+mod1+m exec pactl set-sink-mute 0 toggle
 
 # KB shortcuts for media control using playerctl
-bindsym Control+$mod+mod1+p exec playerctl play-pause
-bindsym Control+$mod+mod1+Right exec playerctl next
-bindsym Control+$mod+mod1+Left exec playerctl previous
+#bindsym Control+$mod+mod1+p exec playerctl play-pause
+#bindsym Control+$mod+mod1+Right exec playerctl next
+#bindsym Control+$mod+mod1+Left exec playerctl previous
+
+# KB shortcuts for MPC
+bindsym Control+$mod+mod1+p exec mpc toggle
+bindsym Control+$mod+mod1+Right exec mpc next
+bindsym Control+$mod+mod1+Left exec mpc prev
+
