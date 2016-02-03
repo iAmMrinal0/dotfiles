@@ -11,3 +11,7 @@ cp $HOME/.zshrc $HOME/dotfiles/
 echo "zshrc done"
 cp $HOME/.emacs $HOME/dotfiles/
 echo ".emacs done"
+cp $HOME/.mpd/mpd.conf $HOME/dotfiles/.mpd
+echo "mpd done"
+cp $HOME/.ncmpcpp/config $HOME/dotfiles/.ncmpcpp
+echo "ncmpcpp done"
