@@ -15,3 +15,5 @@ cp $HOME/.mpd/mpd.conf $HOME/dotfiles/.mpd
 echo "mpd done"
 cp $HOME/.ncmpcpp/config $HOME/dotfiles/.ncmpcpp
 echo "ncmpcpp done"
+cp $HOME/.config/compton.conf $HOME/dotfiles
+echo "compton done"
