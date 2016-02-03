@@ -195,9 +195,10 @@ exec --no-startup-id feh --bg-center ~/Pictures/space.jpg
 exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id numlockx on
 exec --no-startup-id xset -b &
-exec --no-startup-id pactl set-sink-volume 0 15% &
+exec --no-startup-id pactl set-sink-volume 0 25%
 exec --no-startup-id rescuetime
-exec --no-startup-id compton
+exec --no-startup-id compton -b
+exec --no-startup-id compton -b
 exec --no-startup-id transmission-gtk --minimized
 exec --no-startup-id mpd
 exec --no-startup-id i3-msg 'workspace $tag3; exec google-chrome'
