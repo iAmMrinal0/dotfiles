@@ -123,6 +123,7 @@
 (electric-pair-mode 1)
 (projectile-global-mode)
 (setq inhibit-splash-screen t)
+(tool-bar-mode -1)
 (global-set-key (kbd "C-x t") 'ansi-term)
 (global-set-key (kbd "<f5>") 'bs-show)
 
