@@ -9,3 +9,6 @@ The configs for the following programs are in this repo:
  - MPD
  - NCMPCPP
  - ZSH
+
+### License
+ See the [LICENSE](LICENSE) file for license rights and limitations (MIT)
