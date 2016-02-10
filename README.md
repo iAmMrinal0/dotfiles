@@ -8,6 +8,7 @@ The configs for the following programs are in this repo:
  - i3 Window Manager
  - MPD
  - NCMPCPP
+ - Terminator
  - ZSH
 
 ### License
