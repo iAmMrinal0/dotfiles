@@ -173,9 +173,9 @@ hide_edge_borders both
 # finds out, if available)
 bar {
         colors {
-	    background #000000
+	    background #0c0d0e
 	    statusline #ffffff
-	    separator #666666
+	    separator #idbcf1
 
 	    focused_workspace  #008fff #007fff #ffffff
 	    active_workspace   #333333 #5f676a #ffffff
