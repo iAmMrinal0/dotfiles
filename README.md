@@ -7,6 +7,7 @@ The configs for the following programs are in this repo:
  - Emacs
  - i3 Window Manager
  - MPD
+ - Mutt
  - NCMPCPP
  - Terminator
  - ZSH

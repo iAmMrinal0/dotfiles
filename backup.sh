@@ -18,3 +18,5 @@ echo "ncmpcpp done"
 cp $HOME/.config/compton.conf $HOME/dotfiles/.config/
 echo "compton done"
 cp $HOME/.config/terminator/config $HOME/dotfiles/.config/terminator/
+cp $HOME/.mutt/*.rc $HOME/dotfiles/.mutt/
+echo "mutt"
