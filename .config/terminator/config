@@ -11,9 +11,11 @@
 [profiles]
   [[default]]
     palette = "#1d1f21:#cc342b:#198844:#fba922:#eef1f6:#a36ac7:#3971ed:#c5c8c6:#969896:#cc342b:#198844:#fba922:#3971ed:#a36ac7:#3971ed:#ffffff"
-    font = Hack 10
+    font = Hack 9
     background_image = None
     cursor_shape = ibeam
+    background_darkness = 0.57
+    background_type = transparent
     use_system_font = False
     cursor_color = "#b7b8b9"
     foreground_color = "#b7b8b9"
