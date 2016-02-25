@@ -94,12 +94,12 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Name the workspaces
-set $tag1 "1: term"
-set $tag2 "2: code"
-set $tag3 "3: web"
-set $tag4 "4: music"
-set $tag5 "5: avoid"
-set $tag9 "9: bg"
+set $tag1 "1  term"
+set $tag2 "2  code"
+set $tag3 "3  web"
+set $tag4 "4 ♪ music"
+set $tag5 "5  avoid"
+set $tag9 "9  bg"
 
 # switch to workspace
 bindsym $mod+1 workspace $tag1
