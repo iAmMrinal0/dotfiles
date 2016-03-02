@@ -230,3 +230,5 @@ bindsym Control+$mod+mod1+p exec mpc toggle
 bindsym Control+$mod+mod1+Right exec mpc next
 bindsym Control+$mod+mod1+Left exec mpc prev
 
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
