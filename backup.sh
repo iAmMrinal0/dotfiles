@@ -20,3 +20,7 @@ echo "compton done"
 cp $HOME/.config/terminator/config $HOME/dotfiles/.config/terminator/
 cp $HOME/.mutt/*.rc $HOME/dotfiles/.mutt/
 echo "mutt"
+cp $HOME/.gtkrc-2.0 $HOME/dotfiles/
+echo "gtk 2.0"
+cp $HOME/.config/gtk-3.0/settings.ini $HOME/dotfiles/.config/gtk-3.0/
+echo "gtk 3.0"
