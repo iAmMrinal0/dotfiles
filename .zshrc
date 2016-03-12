@@ -86,7 +86,7 @@ alias src="source venv/bin/activate"
 alias dac="deactivate"
 
 # Virtualenvwrapper config
-export export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
