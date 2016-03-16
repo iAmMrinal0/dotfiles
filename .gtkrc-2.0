@@ -3,8 +3,8 @@
 
 include "/home/warlord/.gtkrc-2.0.mine"
 gtk-theme-name="Arc-Dark"
-gtk-icon-theme-name="Faenza Dark"
-gtk-font-name="Input 10"
+gtk-icon-theme-name="Paper"
+gtk-font-name="Input 9"
 gtk-cursor-theme-name="bridge"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_ICONS
