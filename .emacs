@@ -14,7 +14,7 @@
     ("b04425cc726711a6c91e8ebc20cf5a3927160681941e06bc7900a5a5bfe1a77f" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "79a3f477ac0cb4a106f78b6109614e991564a5c2467c36e6e854d4bc1102e178" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(package-selected-packages
    (quote
-    (rainbow-mode web-mode smart-mode-line-powerline-theme py-autopep8 projectile magit jedi flycheck flx-ido elpy base16-theme autopair)))
+    (org-bullets org rainbow-mode web-mode smart-mode-line-powerline-theme py-autopep8 projectile magit jedi flycheck flx-ido elpy base16-theme autopair)))
  '(python-shell-interpreter "python3")
  '(sml/mode-width
    (if
@@ -181,3 +181,11 @@
 (setq web-mode-enable-auto-expanding t)
 (setq web-mode-enable-css-colorization t)
 (setq web-mode-enable-auto-pairing nil)
+
+;; org-mode
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+(setq org-todo-keywords
+  '((sequence "TODO" "IN-PROGRESS" "WAITING" "DONE")))
