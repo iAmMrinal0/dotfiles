@@ -96,3 +96,5 @@ alias hdmii="xrandr --output LVDS1 --off --output HDMI1 --mode 1920x1080i; feh -
 alias hdmio="xrandr --output LVDS1 --auto --output HDMI1 --off"
 alias vgai="xrandr --output LVDS1 --mode 1366x768 --pos 0x0 --output VGA1 --mode 1280x1024 --pos 1366x0; feh --bg-center ~/Pictures/space.jpg"
 alias vgao="xrandr --output LVDS1 --auto --output VGA1 --off"
+
+alias kmp="killall mpd pulseaudio;pactl set-sink-volume 0 45%"
