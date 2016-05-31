@@ -1,0 +1,4 @@
+username = iammrinal0
+password = md5(password)
+host = localhost
+port = 6600
