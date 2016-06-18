@@ -15,7 +15,7 @@
  '(git-gutter:deleted-sign "--")
  '(git-gutter:modified-sign "  ")
  '(git-gutter:update-interval 1)
- '(python-shell-interpreter "python3")
+ '(python-shell-interpreter "python3"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
