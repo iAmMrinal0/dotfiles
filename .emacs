@@ -10,11 +10,14 @@
  '(custom-enabled-themes (quote (base16-google-dark)))
  '(custom-safe-themes
    (quote
-    ("a802c77b818597cc90e10d56e5b66945c57776f036482a033866f5f506257bca" "e8e744a1b0726814ac3ab86ad5ccdf658b9ff1c5a63c4dc23841007874044d4a" default)))
+    ("aea30125ef2e48831f46695418677b9d676c3babf43959c8e978c0ad672a7329" "52afc00c1d613bb2a84d58624845e452bcd45838030c58b16b01fa368448f20a" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "a802c77b818597cc90e10d56e5b66945c57776f036482a033866f5f506257bca" "e8e744a1b0726814ac3ab86ad5ccdf658b9ff1c5a63c4dc23841007874044d4a" default)))
  '(git-gutter:added-sign "++")
  '(git-gutter:deleted-sign "--")
  '(git-gutter:modified-sign "  ")
  '(git-gutter:update-interval 1)
+ '(package-selected-packages
+   (quote
+    (markdown-preview-mode yasnippet-bundle web-mode undo-tree smart-mode-line py-autopep8 projectile org-bullets neotree magit jedi git-gutter flycheck flx-ido emojify elpy base16-theme anzu use-package)))
  '(python-shell-interpreter "python3"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -86,7 +89,7 @@
 (use-package elpy
   :ensure t
   :defer t
-  :init
+  :config
   (elpy-enable))
 
 (use-package emojify
@@ -103,11 +106,7 @@
 
 (use-package flycheck
   :ensure t
-  :defer t
-  :init
-  (when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode)))
+  :init (global-flycheck-mode))
 
 (use-package ido
   :ensure t
@@ -131,7 +130,7 @@
 (use-package jedi
   :ensure t
   :defer t
-  :config
+  :init
   (add-hook 'python-mode-hook 'jedi:setup)
   (setq jedi:complete-on-dot t)
   (setq jedi:use-shortcuts t))
@@ -168,15 +167,18 @@
   :ensure t
   :diminish projectile-mode
   :init
-  (projectile-global-mode))
+  (projectile-mode))
 
 (use-package py-autopep8
   :ensure t
   :defer t
   :init
-  (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
+  (add-hook 'python-mode-hook 'py-autopep8-enable-on-save))
 
 (use-package smart-mode-line
+  :ensure t)
+
+(use-package smart-mode-line-powerline-theme
   :ensure t)
 
 (use-package smart-mode-powerline-theme
