@@ -40,7 +40,7 @@ ZSH_THEME="mod_steeef"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd/mm/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -49,11 +49,11 @@ ZSH_THEME="mod_steeef"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git debian sudo)
+plugins=(debian extract git sudo)
 
 # User configuration
 
-  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin"
+  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:$HOME/bin:$HOME/.local/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -67,6 +67,7 @@ export LANG=en_US.UTF-8
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR='emacsclient'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -86,7 +87,7 @@ alias src="source venv/bin/activate"
 alias dac="deactivate"
 
 # Virtualenvwrapper config
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.6
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
@@ -97,4 +98,10 @@ alias hdmio="xrandr --output LVDS1 --auto --output HDMI1 --off"
 alias vgai="xrandr --output LVDS1 --mode 1366x768 --pos 0x0 --output VGA1 --mode 1280x1024 --pos 1366x0; feh --bg-center ~/Pictures/space.jpg"
 alias vgao="xrandr --output LVDS1 --auto --output VGA1 --off"
 
+alias gkhdi="xrandr --output eDP1 --off --output HDMI1 --mode 1280x720; feh --bg-center ~/Pictures/space.jpg; date +'%H:%M:%S'"
+alias gkhdo="xrandr --output eDP1 --auto --output HDMI1 --off; date +'%H:%M:%S'"
+
 alias kmp="killall mpd pulseaudio;pactl set-sink-volume 0 45%"
+
+alias ag="ag"
+alias e="emacsclient -a '' -c"
