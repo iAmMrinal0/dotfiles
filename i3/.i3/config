@@ -193,30 +193,33 @@ client.unfocused #666666 #666666 #ffffff
 client.urgent #aa0000 #990000 #ffffff
 
 # Startup programs
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
+exec --no-startup-id wicd-client --tray
 exec --no-startup-id feh --bg-center ~/Pictures/space.jpg
 exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id numlockx on
 exec --no-startup-id xset -b &
 exec --no-startup-id pactl set-sink-volume 0 25%
-exec --no-startup-id mpdas -d
+exec --no-startup-id mpd &
+exec --no-startup-id emacs --daemon
 exec --no-startup-id rescuetime
 exec --no-startup-id compton -b
-exec --no-startup-id compton -b
+exec --no-startup-id mpdas
+exec --no-startup-id sonarr
 exec --no-startup-id transmission-gtk --minimized
 #exec --no-startup-id indicator-kdeconnect
-exec --no-startup-id i3-msg 'workspace $tag3; exec google-chrome'
+exec --no-startup-id i3-msg 'workspace $tag3; exec google-chrome-stable'
 
 # Custom KeyBinds
 #bindsym Control+mod1+l exec zsh ~/.i3/i3lock.sh
-bindsym Control+mod1+l exec zsh $HOME/.bin/scripts/lock.sh $HOME/Pictures/lock.png
+bindsym Control+mod1+l exec zsh $HOME/scripts/lock.sh $HOME/Pictures/lock.png
 #bindsym --release Print exec scrot -zs '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
 bindsym --release Print exec gnome-screenshot -i
-bindsym Control+$mod+l exec ~/.bin/scripts/shutdown_menu
+bindsym Control+$mod+l exec ~/scripts/shutdown_menu
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5% #decrease sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 
 # Multimedia keys playback control
@@ -228,6 +231,10 @@ bindsym XF86AudioPrev exec mpc prev
 bindsym Control+$mod+mod1+Up exec pactl set-sink-volume 0 +5%
 bindsym Control+$mod+mod1+Down exec pactl set-sink-volume 0 -- -5%
 bindsym Control+$mod+mod1+m exec pactl set-sink-mute 0 toggle
+
+# Brightness controls
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
 
 # KB shortcuts for media control using playerctl
 #bindsym Control+$mod+mod1+p exec playerctl play-pause
