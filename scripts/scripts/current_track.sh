@@ -1,7 +1,7 @@
 #! /bin/bash
 
 py_manage() {
-    python3 ~/.bin/scripts/current_track.py
+    python3 ~/scripts/current_track.py
 }
 
 case $BLOCK_BUTTON in

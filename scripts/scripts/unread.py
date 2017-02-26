@@ -5,7 +5,7 @@ import imaplib
 def main():
     try:
         config = configparser.ConfigParser()
-        config.read("/home/warlord/.bin/scripts/mail_config.ini")
+        config.read("/home/warlord/scripts/mail_config.ini")
         obj = imaplib.IMAP4_SSL("imap.gmail.com", "993")
         obj.login(config["mail"]["mail_id"], config["mail"]["mail_password"])
         obj.select()
