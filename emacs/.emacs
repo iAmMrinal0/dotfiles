@@ -157,9 +157,15 @@
 (require 'diminish)
 (require 'bind-key)
 
-
 (use-package ag
   :ensure t)
+
+(use-package aggressive-indent
+  :ensure t
+  :diminish (aggressive-indent-mode)
+  :init
+  (global-aggressive-indent-mode 1)
+  (add-to-list 'aggressive-indent-excluded-modes 'html-mode))
 
 (use-package anzu
   :ensure t
