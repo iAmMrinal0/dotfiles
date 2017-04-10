@@ -193,11 +193,6 @@
   :config
   (elpy-enable))
 
-(use-package emojify
-  :ensure t
-  :init
-  (global-emojify-mode))
-
 (use-package expand-region
   :ensure t
   :bind
@@ -214,6 +209,12 @@
   :ensure t
   :defer t
   :init (global-flycheck-mode))
+
+(use-package flyspell
+  :mode ("'\\.md\\'" . flyspell-mode))
+
+(use-package free-keys
+  :ensure t)
 
 (use-package git-gutter
   :ensure t
@@ -264,12 +265,6 @@
   (ido-vertical-mode 1)
   (setq ido-vertical-define-keys 'C-n-C-p))
 
-;; (use-package intero
-;;   :ensure t
-;;   :after haskell-mode
-;;   :config
-;;   (add-hook 'haskell-mode-hook 'intero-mode))
-
 (use-package jedi
   :ensure t
   :defer t
@@ -308,6 +303,13 @@
   :config
   (setq magit-commit-arguments (quote ("--gpg-sign=E27C4BC509095144"))))
 
+(use-package markdown-mode
+  :ensure t
+  :defer t
+  :commands (markdown-mode gfm-mode)
+  :mode ("\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown"))
+
 (use-package mpc
   :bind
   ("C-x M-m" . mpc)
@@ -321,14 +323,6 @@
   ("C->" . mc/mark-next-like-this)
   ("C-<" . mc/mark-previous-like-this)
   ("C-c C-<" . mc/mark-all-like-this))
-
-;; (use-package neotree
-;;   :ensure t
-;;   :defer t
-;;   :bind
-;;   ("C->" . neotree-toggle)
-;;   :config
-;;   (setq neo-smart-open t))
 
 (use-package org
   :ensure t
