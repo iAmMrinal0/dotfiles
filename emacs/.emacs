@@ -3,35 +3,51 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(ansi-color-names-vector
-   ["#1d1f21" "#cc342b" "#198844" "#fba922" "#3971ed" "#a36ac7" "#3971ed" "#c5c8c6"])
- '(ansi-term-color-vector
-   [unspecified "#1d1f21" "#cc342b" "#198844" "#fba922" "#3971ed" "#a36ac7" "#3971ed" "#c5c8c6"])
  '(compilation-message-face (quote default))
  '(custom-safe-themes
    (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
+    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" default)))
  '(package-selected-packages
    (quote
-    (xkcd window-numbering web-mode use-package undo-tree spinner smart-mode-line-powerline-theme rainbow-mode py-autopep8 projectile pdf-tools org-bullets multiple-cursors magit js-comint jedi ido-vertical-mode helm haskell-mode git-timemachine git-gutter free-keys flycheck flx-ido expand-region emojify elpy dracula-theme company-tern base16-theme anzu ag ac-js2))))
- '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
- '(highlight-tail-colors
-   (quote
-    (("#3C3D37" . 0)
-     ("#679A01" . 20)
-     ("#4BBEAE" . 30)
-     ("#1DB4D0" . 50)
-     ("#9A8F21" . 60)
-     ("#A75B00" . 70)
-     ("#F309DF" . 85)
-     ("#3C3D37" . 100))))
- '(magit-diff-use-overlays nil)
- '(org-agenda-files (quote ("~/geekskool/js/clean.org")))
- '(pos-tip-background-color "#A6E22E")
- '(pos-tip-foreground-color "#272822")
- '(python-shell-interpreter "python3")
+    (xref-js2 system-packages helm-flx helm-fuzzier spacemacs-theme highlight-numbers color-identifiers-mode arch-packer pacmacs smartparens zpresent nodejs-repl xkcd window-numbering web-mode use-package undo-tree spinner smart-mode-line-powerline-theme rainbow-mode py-autopep8 projectile pdf-tools org-bullets multiple-cursors magit js-comint jedi ido-vertical-mode helm haskell-mode git-timemachine git-gutter free-keys flycheck flx-ido expand-region emojify elpy dracula-theme company-tern base16-theme anzu ag ac-js2))))
+;;  '(vc-annotate-background "#181e26")
+;;  '(vc-annotate-color-map
+;;    (quote
+;;     ((20 . "#98be65")
+;;      (40 . "#ffff00")
+;;      (60 . "#ffff00")
+;;      (80 . "#ECBE7B")
+;;      (100 . "#ffff00")
+;;      (120 . "#ffff00")
+;;      (140 . "#da8548")
+;;      (160 . "#ffaa55")
+;;      (180 . "#ff55aa")
+;;      (200 . "#c678dd")
+;;      (220 . "#ff00aa")
+;;      (240 . "#ff0055")
+;;      (260 . "#ff6c6b")
+;;      (280 . "#bf0000")
+;;      (300 . "#7f0000")
+;;      (320 . "#3f0000")
+;;      (340 . "#525252")
+;;      (360 . "#525252"))))
+;;  '(vc-annotate-very-old-color nil))
+;; '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
+;; '(highlight-tail-colors
+;;   (quote
+;;    (("#3C3D37" . 0)
+;;     ("#679A01" . 20)
+;;     ("#4BBEAE" . 30)
+;;     ("#1DB4D0" . 50)
+;;     ("#9A8F21" . 60)
+;;     ("#A75B00" . 70)
+;;     ("#F309DF" . 85)
+;;     ("#3C3D37" . 100))))
+'(magit-diff-use-overlays nil)
+'(org-agenda-files (quote ("~/geekskool/js/clean.org")))
+;; '(pos-tip-background-color "#A6E22E")
+;; '(pos-tip-foreground-color "#272822")
+'(python-shell-interpreter "python3")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
