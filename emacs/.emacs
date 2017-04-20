@@ -93,13 +93,17 @@
 (blink-cursor-mode -1)
 (show-paren-mode 1)
 (tool-bar-mode -1)
-(setq save-place 1)
-(set-face-attribute 'default nil
-                    :family "Inconsolata-g"
-                    :foundry "PfEd"
-                    :height 105
-                    :weight 'normal
-                    :width 'normal)
+(scroll-bar-mode -1)
+;; (set-face-attribute 'default nil
+;;                     :family "Source Code Pro"
+;;                     :foundry "ADBO"
+;;                     :height 105
+;;                     :weight 'normal
+;;                     :width 'normal)
+
+(setq default-frame-alist
+      (append '((font . "-ADBO-Source Code Pro-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1"))
+              default-frame-alist))
 
 ;; nice scrolling
 (setq scroll-margin 0
@@ -110,49 +114,49 @@
 (setq initial-scratch-message "")
 
 ;; Removes *scratch* from buffer after the mode has been set.
-(defun remove-scratch-buffer ()
-  (if (get-buffer "*scratch*")
-      (kill-buffer "*scratch*")))
-(add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
+;; (defun remove-scratch-buffer ()
+;;   (if (get-buffer "*scratch*")
+;;       (kill-buffer "*scratch*")))
+;; (add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
 
 ;; Removes *messages* from the buffer.
-(setq-default message-log-max nil)
-(kill-buffer "*Messages*")
+;; (setq-default message-log-max nil)
+;; (kill-buffer "*Messages*")
 
 ;; Removes *Completions* from buffer after you've opened a file.
-(add-hook 'minibuffer-exit-hook
-      '(lambda ()
-         (let ((buffer "*Completions*"))
-           (and (get-buffer buffer)
-                (kill-buffer buffer)))))
+;; (add-hook 'minibuffer-exit-hook
+;;           '(lambda ()
+;;              (let ((buffer "*Completions*"))
+;;                (and (get-buffer buffer)
+;;                     (kill-buffer buffer)))))
 
 ;; Removes *buffer-completion* from buffer
-(add-hook 'minibuffer-exit-hook
-      '(lambda ()
-         (let ((buffer "*buffer-selection*"))
-           (and (get-buffer buffer)
-                (kill-buffer buffer)))))
+;; (add-hook 'minibuffer-exit-hook
+;;           '(lambda ()
+;;              (let ((buffer "*buffer-selection*"))
+;;                (and (get-buffer buffer)
+;;                     (kill-buffer buffer)))))
 
 
 ;; Don't show *Buffer list* when opening multiple files at the same time.
-(setq inhibit-startup-buffer-menu t)
+;; (setq inhibit-startup-buffer-menu t)
 
 ;; Show only one active window when opening multiple files at the same time.
-(add-hook 'window-setup-hook 'delete-other-windows)
+;; (add-hook 'window-setup-hook 'delete-other-windows)
 
 ;; disable arrow keys, cause I like to watch the world burn
-;; (global-unset-key (kbd "<left>"))
-;; (global-unset-key (kbd "<right>"))
-;; (global-unset-key (kbd "<up>"))
-;; (global-unset-key (kbd "<down>"))
-;; (global-unset-key (kbd "<C-left>"))
-;; (global-unset-key (kbd "<C-right>"))
-;; (global-unset-key (kbd "<C-up>"))
-;; (global-unset-key (kbd "<C-down>"))
-;; (global-unset-key (kbd "<M-left>"))
-;; (global-unset-key (kbd "<M-right>"))
-;; (global-unset-key (kbd "<M-up>"))
-;; (global-unset-key (kbd "<M-down>"))
+(global-unset-key (kbd "<left>"))
+(global-unset-key (kbd "<right>"))
+(global-unset-key (kbd "<up>"))
+(global-unset-key (kbd "<down>"))
+(global-unset-key (kbd "<C-left>"))
+(global-unset-key (kbd "<C-right>"))
+(global-unset-key (kbd "<C-up>"))
+(global-unset-key (kbd "<C-down>"))
+(global-unset-key (kbd "<M-left>"))
+(global-unset-key (kbd "<M-right>"))
+(global-unset-key (kbd "<M-up>"))
+(global-unset-key (kbd "<M-down>"))
 
 ;; package initializations
 (require 'package)
