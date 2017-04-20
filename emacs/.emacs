@@ -81,6 +81,7 @@
 (set-default-coding-systems 'utf-8)
 (setcdr (assq 'empty-line fringe-indicator-alist) 'tilde)
 (setq vc-follow-symlinks t)
+(setq set-mark-command-repeat-pop t)
 (setq load-prefer-newer t)
 (setq make-backup-files nil)
 (setq-default cursor-type 'bar)
@@ -177,15 +178,10 @@
 (require 'diminish)
 (require 'bind-key)
 
+(diminish 'visual-line-mode "")
+
 (use-package ag
   :ensure t)
-
-(use-package aggressive-indent
-  :ensure t
-  :diminish (aggressive-indent-mode)
-  :init
-  (global-aggressive-indent-mode 1)
-  (add-to-list 'aggressive-indent-excluded-modes 'html-mode))
 
 (use-package anzu
   :ensure t
@@ -199,19 +195,34 @@
   (global-auto-complete-mode t)
   (ac-config-default))
 
-;; (use-package base16-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'base16-dracula))
-
 (use-package bs
   :bind
   ("M-g M-b" . bs-show))
 
-(use-package dracula-theme
+(use-package color-identifiers-mode
   :ensure t
+  :diminish (color-identifiers-mode)
   :init
-  (load-theme 'dracula t))
+  (color-identifiers-mode))
+
+;; company backend for tern
+;; http://ternjs.net/doc/manual.html#emacs
+(use-package company-tern
+  :ensure t
+  :defer t
+  :diminish (company-mode))
+
+;; Picked from Chillar Anand
+(use-package desktop
+  :config
+  (setq desktop-dirname             "~/.emacs.d/desktop/"
+        desktop-base-file-name      "emacs.desktop"
+        desktop-base-lock-name      "lock"
+        desktop-path                (list desktop-dirname)
+        desktop-save                t
+        desktop-files-not-to-save   "^$"  ;reload tramp paths
+        desktop-load-locked-desktop t)
+  (desktop-save-mode 1))
 
 (use-package elpy
   :ensure t
@@ -264,20 +275,37 @@
   :bind
   ("C-x C-g" . git-timemachine))
 
-;; (use-package haskell-mode
-;;   :ensure t
-;;   :config
-;;   (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
-;;   (add-hook 'haskell-mode-hook 'interactive-haskell-mode))
-
 (use-package helm
   :ensure t
   :diminish (helm-mode)
-  :config
-  (setq helm-mode-fuzzy-match t)
-  (setq helm-completion-in-region-fuzzy-match t)
-  (global-set-key (kbd "M-x") 'helm-M-x)
+  :bind
+  ("M-g M-m" . helm-global-mark-ring)
+  ("M-x" . helm-M-x)
+  ("M-y" . helm-show-kill-ring)
+  :init
+  (setq helm-M-x-fuzzy-match                  t)
+  ;;       helm-bookmark-show-location           t
+  ;;       helm-buffers-fuzzy-matching           t
+  ;;       helm-completion-in-region-fuzzy-match t
+  ;;       helm-file-cache-fuzzy-match           t
+  ;;       helm-imenu-fuzzy-match                t
+  ;;       helm-mode-fuzzy-match                 t
+  ;;       helm-locate-fuzzy-match               t
+  ;;       helm-quick-update                     t
+  ;;       helm-recentf-fuzzy-match              t
+  ;;       helm-semantic-fuzzy-match             t)
+  (require 'helm-config)
   (helm-mode 1))
+
+;; (use-package helm-flx
+;;   :ensure t
+;;   :init
+;;   (helm-flx-mode +1))
+
+;; (use-package helm-fuzzier
+;;   :ensure t
+;;   :init
+;;   (helm-fuzzier-mode 1))
 
 (use-package ido
   :ensure t
@@ -301,13 +329,21 @@
 
 (use-package js2-mode
   :ensure t
+  :mode ("\\.js\\'" . js2-mode)
   :init
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-  :config
   (setq js2-include-node-externs t)
   (setq js2-basic-offset 2)
+  (setq js-indent-level 2)
   (setq js2-strict-missing-semi-warning nil)
   (setq js-switch-indent-offset 2))
+
+(use-package js2-refactor
+  :ensure t
+  :diminish (js2-refactor-mode)
+  :defer t
+  :config
+  (js2r-add-keybindings-with-prefix "C-c C-m")
+  (add-hook 'js2-mode-hook 'js2-refactor-mode))
 
 (use-package js-comint
   :ensure t
@@ -315,12 +351,12 @@
   (setq inferior-js-program-command "node")
   (setq inferior-js-program-arguments '("--interactive"))
   (add-hook 'js2-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-x C-e") 'js-send-last-sexp)
-            (local-set-key (kbd "C-M-x") 'js-send-last-sexp-and-go)
-            (local-set-key (kbd "C-c b") 'js-send-buffer)
-            (local-set-key (kbd "C-c C-b") 'js-send-buffer-and-go)
-            (local-set-key (kbd "C-c l") 'js-load-file-and-go))))
+            (lambda ()
+              (local-set-key (kbd "C-x C-e") 'js-send-last-sexp)
+              (local-set-key (kbd "C-M-x") 'js-send-last-sexp-and-go)
+              (local-set-key (kbd "C-c b") 'js-send-buffer)
+              (local-set-key (kbd "C-c C-b") 'js-send-buffer-and-go)
+              (local-set-key (kbd "C-c l") 'js-load-file-and-go))))
 
 (use-package magit
   :ensure t
