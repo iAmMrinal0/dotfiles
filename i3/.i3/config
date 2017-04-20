@@ -126,16 +126,16 @@ bindsym $mod+Shift+9 move container to workspace $tag9; workspace $tag9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # assign to workspaces
-assign [class="jetbrains-pycharm-ce"] $tag2
+# assign [class="jetbrains-pycharm-ce"] $tag2
 assign [class="Emacs"] $tag2
-assign [class="Rhythmbox"] $tag4
+# assign [class="Rhythmbox"] $tag4
 assign [class="Vlc"] $tag4
 assign [class="Slack"] $tag5
 
 for_window [class="^.*"] border pixel 0
 
 # reload the configuration file
-#bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -205,6 +205,8 @@ exec --no-startup-id rescuetime
 exec --no-startup-id compton -b
 exec --no-startup-id sonarr
 exec --no-startup-id transmission-gtk --minimized
+exec --no-startup-id caffeine
+exec --no-startup-id run_keybase
 exec xautolock -time 3 -locker $HOME/scripts/lock.sh
 #exec --no-startup-id indicator-kdeconnect
 exec --no-startup-id i3-msg 'workspace $tag3; exec google-chrome-stable'
@@ -213,7 +215,7 @@ exec --no-startup-id i3-msg 'workspace $tag3; exec google-chrome-stable'
 bindsym Control+mod1+l exec zsh $HOME/scripts/lock.sh
 #bindsym --release Print exec scrot -zs '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
 bindsym --release Print exec gnome-screenshot -i
-bindsym Control+$mod+l exec ~/scripts/shutdown_menu
+bindsym Control+$mod+l exec $HOME/scripts/shutdown_menu
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
