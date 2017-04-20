@@ -386,6 +386,16 @@
   ("C-<" . mc/mark-previous-like-this)
   ("C-c C-<" . mc/mark-all-like-this))
 
+(use-package nodejs-repl
+  :ensure t
+  :init
+  (add-hook 'js-mode-hook
+            (lambda ()
+              (define-key js-mode-map (kbd "C-x C-e") 'nodejs-repl-send-last-sexp)
+              (define-key js-mode-map (kbd "C-c C-r") 'nodejs-repl-send-region)
+              (define-key js-mode-map (kbd "C-c C-l") 'nodejs-repl-load-file)
+              (define-key js-mode-map (kbd "C-c C-z") 'nodejs-repl-switch-to-repl))))
+
 (use-package org
   :ensure t
   :defer t
@@ -395,7 +405,11 @@
   :config
   (setq org-log-done t)
   (setq org-todo-keywords
-      '((sequence "TODO" "IN-PROGRESS" "CANCELLED" "DONE"))))
+           '((sequence "TODO(t)" "|" "DONE(d)")
+             (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
+             (sequence "|" "CANCELED(c)"))))
+  ;; (setq org-todo-keywords
+  ;;       '((sequence "TODO(t)" "IN-PROGRESS(i)" "CANCELLED(c)" "DONE(d)"))))
 
 (use-package org-bullets
   :ensure t
@@ -410,7 +424,6 @@
 
 (use-package projectile
   :ensure t
-  :diminish projectile-mode
   :init
   (projectile-mode))
 
@@ -424,23 +437,43 @@
   :ensure t
   :diminish rainbow-mode
   :init
-  (rainbow-mode t))
-
-;; (use-package color-theme-sanityinc-tomorrow
-;;   :ensure t
-;;   :config
-;;   (load-theme 'sanityinc-tomorrow-night t))
+  (add-hook 'prog-mode-hook 'rainbow-mode))
 
 (use-package smart-mode-line
   :ensure t
   :init
-  (setq sml/theme 'dark)
+  (setq sml/theme 'respectful)
   (setq sml/mode-width 'full)
   (setq sml/name-width 10)
   (sml/setup))
 
 ;; (use-package smart-mode-line-powerline-theme
 ;;   :ensure t)
+
+(use-package smartparens
+  :ensure t
+  :diminish (smartparens-mode)
+  :init
+  (require 'smartparens-config)
+  (smartparens-global-mode))
+
+(use-package tern
+  :ensure t
+  :diminish (tern-mode)
+  :defer t
+  :config
+  (defun my-js-mode-hook ()
+    "Hook for `js-mode'."
+    (set (make-local-variable 'company-backends)
+         '((company-tern company-files))))
+  (add-hook 'js2-mode-hook 'my-js-mode-hook)
+  (add-hook 'js2-mode-hook 'company-mode)
+  (add-hook 'js2-mode-hook 'tern-mode))
+
+(use-package tern-auto-complete
+  :ensure t
+  :init
+  (tern-ac-setup))
 
 (use-package undo-tree
   :ensure t
@@ -453,18 +486,17 @@
 
 (use-package uniquify
   :config
-   (setq uniquify-buffer-name-style 'forward)
-   (setq uniquify-separator "/")
-   (setq uniquify-after-kill-buffer-p t)
-   (setq uniquify-ignore-buffers-re "^\\*"))
+  (setq uniquify-buffer-name-style 'forward)
+  (setq uniquify-separator "/")
+  (setq uniquify-after-kill-buffer-p t)
+  (setq uniquify-ignore-buffers-re "^\\*"))
 
 (use-package web-mode
   :ensure t
   :defer t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
-  (setq web-mode-engines-alist '(("django" . "\\.html\\'")))
+  :mode
+  ("\\.html?\\'" . web-mode)
+  ("\\.css?\\'" . web-mode)
   :config
   (setq-default indent-tabs-mode nil)
   (setq web-mode-markup-indent-offset 2)
