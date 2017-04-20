@@ -59,16 +59,14 @@
 ;; GUI and other settings
 (if (daemonp)
     (add-hook 'after-make-frame-functions
-        (lambda (frame)
-            (with-selected-frame frame
-                (load-theme 'dracula t))))
-    (load-theme 'dracula t))
+              (lambda (frame)
+                (with-selected-frame frame
+                  (load-theme 'spacemacs-dark t)))))
 (add-to-list 'auto-mode-alist '("\\.cl\\'" . (lambda () (setq-local require-final-newline t))))
 (column-number-mode 1)
 (define-fringe-bitmap 'tilde [0 0 0 113 219 142 0 0] nil nil 'center)
 (delete-selection-mode 1)
-(desktop-save-mode 1)
-(electric-pair-mode 1)
+;; (electric-pair-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode t)
 (global-hl-line-mode t)
@@ -521,19 +519,76 @@
   :init
   (yas-global-mode 1))
 
-(use-package tern
-  :diminish (tern-mode)
-  :config
-  (defun my-js-mode-hook ()
-    "Hook for `js-mode'."
-    (set (make-local-variable 'company-backends)
-         '((company-tern company-files))))
-  (add-hook 'js2-mode-hook 'my-js-mode-hook)
-  (add-hook 'js2-mode-hook 'company-mode)
-  (add-hook 'js2-mode-hook 'tern-mode))
-
-;; company backend for tern
-;; http://ternjs.net/doc/manual.html#emacs
-(use-package company-tern
+(use-package which-key
   :ensure t
-  :diminish (company-mode))
+  :diminish (which-key-mode)
+  :init
+  (which-key-setup-side-window-bottom)
+  (which-key-mode))
+
+(use-package xref-js2
+  :ensure t
+  :init
+  (add-hook 'js2-mode-hook (lambda ()
+  (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t))))
+
+(use-package zerodark-theme
+  :ensure t
+  :init
+  (zerodark-setup-modeline-format))
+
+(use-package spacemacs-theme
+  :ensure t
+  :init
+  (load-theme 'spacemacs-dark t))
+
+;; Run node tests with Windows key + t
+(defvar testing-command "echo No testing command configured!")
+
+(defun execute-tests ()
+  (interactive)
+  (when (and (buffer-modified-p)
+             (y-or-n-p (format "Save file %s? " (buffer-file-name))))
+    (save-buffer))
+  (with-output-to-temp-buffer "*automated tests*"
+    (shell-command (concat "echo Running: " testing-command) "*automated tests*")
+    (shell-command testing-command
+                   "*automated tests*")
+    (pop-to-buffer "*automated tests*")))
+
+(global-set-key (kbd "s-t") 'execute-tests)
+
+(defun test-javascript ()
+  (concat "npm test"))
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (set (make-local-variable 'testing-command)
+                 (test-javascript))))
+
+;;;
+
+;; (use-package doom-themes
+;;   :ensure t
+;;   :init
+;;   (load-theme 'doom-one t)
+;;   (setq doom-enable-bold t    ; if nil, bolding are universally disabled
+;;         doom-enable-italic t  ; if nil, italics are universally disabled
+
+;;         ;; doom-one specific settings
+;;         doom-one-brighter-modeline t
+;;         doom-one-brighter-comments t)
+;;   ;; brighter minibuffer when active
+;;   (add-hook 'minibuffer-setup-hook 'doom-brighten-minibuffer))
+
+;; (custom-theme-set-faces
+;;  'doom-one
+;;  '(font-lock-builtin-face ((t (:foreground "c678dd" :bold bold))))
+;;  '(font-lock-keyword-face ((t (:foreground "#51afef" :bold bold))))
+;;  '(font-lock-comment-face ((t (:foreground "#5699AF" :italic italic))))
+;;  '(font-lock-constant-face      ((t (:foreground "#a9a1e1" :bold bold :italic italic))))
+;;  '(font-lock-function-name-face ((t (:foreground "#c678dd" :bold bold))))
+;;  '(font-lock-keyword-face       ((t (:foreground "#51afef" :italic italic)))))
+
+(provide '.emacs)
+;;; .emacs ends here
