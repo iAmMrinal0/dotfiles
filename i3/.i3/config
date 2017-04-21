@@ -257,3 +257,5 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 # KB shortcut to move workspace to other screen
 bindsym Control+$mod+Right move workspace to output right
 bindsym Control+$mod+Left move workspace to output left
+
+bindsym $mod+t exec notify-send -t 5000 "`date +%H:%M`" "`date +%A` `date +%d` `date +%B` `date +%Y` - Week `date +%U`"
