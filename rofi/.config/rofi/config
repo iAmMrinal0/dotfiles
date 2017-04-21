@@ -16,6 +16,3 @@ rofi.padding: 1
 rofi.bw: 1
 rofi.separator-style: none
 rofi.hide-scrollbar: true
-rofi.sidebar-mode: true
-rofi.modi: window,run
-rofi.show: run

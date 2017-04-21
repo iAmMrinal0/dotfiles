@@ -39,11 +39,12 @@ set $text-color     #f3f4f5
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec rofi -show
+bindsym $mod+d exec rofi -show run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+Control+d exec i3-dmenu-desktop --dmenu 'rofi -dmenu'
+bindsym Control+$mod+w exec rofi -show window
 
 # change focus
 bindsym $mod+j focus left
