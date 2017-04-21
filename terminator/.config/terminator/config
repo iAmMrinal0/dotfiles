@@ -25,7 +25,7 @@
     copy_on_selection = True
     cursor_color = "#b7b8b9"
     cursor_shape = ibeam
-    font = Hack 9
+    font = Source Code Pro Semi-Bold 10
     foreground_color = "#b7b8b9"
     icon_bell = False
     palette = "#1d1f21:#cc342b:#198844:#fba922:#eef1f6:#a36ac7:#3971ed:#c5c8c6:#969896:#cc342b:#198844:#fba922:#3971ed:#a36ac7:#3971ed:#ffffff"
