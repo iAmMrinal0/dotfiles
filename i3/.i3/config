@@ -215,11 +215,10 @@ exec --no-startup-id rescuetime
 exec --no-startup-id compton -b
 exec --no-startup-id sonarr
 exec --no-startup-id transmission-gtk --minimized
-exec --no-startup-id caffeine
-exec --no-startup-id run_keybase
-exec xautolock -time 3 -locker $HOME/scripts/lock.sh
 #exec --no-startup-id indicator-kdeconnect
 exec --no-startup-id i3-msg 'workspace $tag3; exec google-chrome-stable'
+exec systemctl --user enable mpdas.service
+exec systemctl --user start mpdas.service
 
 # Custom KeyBinds
 bindsym Control+mod1+l exec zsh $HOME/scripts/lock.sh
