@@ -4,7 +4,8 @@
 The configs for the following programs are in this repo:
 
  - Compton
- - Emacs
+ - Dunst
+ - Emacs (moved to separate repo at [iammrinal0/.emacs.d](https://github.com/iammrinal0/.emacs.d)), the older config still resides here
  - i3 Window Manager
  - MPD
  - MPDAS
