@@ -96,6 +96,12 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# move window to scratchpad
+bindsym $mod+q move scratchpad
+
+# show window from scratchpad
+bindsym $mod+x scratchpad show
+
 # Name the workspaces
 set $tag1 "1  term"
 set $tag2 "2  code"
