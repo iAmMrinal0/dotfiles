@@ -2,10 +2,10 @@
   borderless = True
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   title_font = Hack 9
-  title_inactive_bg_color = "#737475"
-  title_inactive_fg_color = "#b7b8b9"
-  title_transmit_bg_color = "#0c0d0e"
-  title_transmit_fg_color = "#b7b8b9"
+  title_inactive_bg_color = "#373b41"
+  title_inactive_fg_color = "#ebdbb2"
+  title_transmit_bg_color = "#1c1c1c"
+  title_transmit_fg_color = "#ebdbb2"
   title_use_system_font = False
 [keybindings]
 [layouts]
@@ -20,25 +20,25 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#0c0d0e"
+    background_color = "#1d2021"
     background_darkness = 0.57
     copy_on_selection = True
-    cursor_color = "#b7b8b9"
+    cursor_color = "#ebdbb2"
     cursor_shape = ibeam
     font = Source Code Pro Semi-Bold 10
-    foreground_color = "#b7b8b9"
+    foreground_color = "#ebdbb2"
     icon_bell = False
-    palette = "#1d1f21:#cc342b:#198844:#fba922:#eef1f6:#a36ac7:#3971ed:#c5c8c6:#969896:#cc342b:#198844:#fba922:#3971ed:#a36ac7:#3971ed:#ffffff"
+    palette = "#1c1c1c:#fb4933:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#fe8019:#373b41:#d75f5f:#afaf00:#ffaf00:#87afaf:#d787af:#87af87:#ff8700"
     scrollback_infinite = True
     use_system_font = False
   [[External]]
-    background_color = "#0c0d0e"
+    background_color = "#1d2021"
     background_darkness = 0.57
     copy_on_selection = True
-    cursor_color = "#b7b8b9"
+    cursor_color = "#ebdbb2"
     cursor_shape = ibeam
     font = Hack 18
-    foreground_color = "#b7b8b9"
+    foreground_color = "#ebdbb2"
     icon_bell = False
-    palette = "#1d1f21:#cc342b:#198844:#fba922:#eef1f6:#a36ac7:#3971ed:#c5c8c6:#969896:#cc342b:#198844:#fba922:#3971ed:#a36ac7:#3971ed:#ffffff"
+    palette = "#1c1c1c:#fb4933:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#fe8019:#373b41:#d75f5f:#afaf00:#ffaf00:#87afaf:#d787af:#87af87:#ff8700"
     use_system_font = False

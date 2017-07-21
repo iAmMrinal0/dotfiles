@@ -7,7 +7,17 @@
 # rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
 # rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
 
-rofi.theme: /usr/share/rofi/themes/glue_pro_blue.rasi
+rofi.color-enabled: true
+
+!                  bg       border   separator
+rofi.color-window: #1d2021, #a89984, #a89984
+
+!                  bg       fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: #1d2021, #ebdbb2, #282828, #504945, #fbf1c7
+rofi.color-active: #d79921, #1d2021, #d79921, #fabd2f, #1d2021
+rofi.color-urgent: #cc241d, #1d2021, #cc241d, #fb4934, #1d2021
+
+# rofi.theme: /usr/share/rofi/themes/glue_pro_blue.rasi
 rofi.matching: fuzzy
 rofi.lines: 4
 rofi.eh: 2

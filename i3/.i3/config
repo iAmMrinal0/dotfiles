@@ -183,14 +183,14 @@ hide_edge_borders both
 bar {
 	font pango: $font, FontAwesome $size
         colors {
-	    background #0c0d0e
-	    statusline #ffffff
-	    separator #idbcf1
+	    background #1d2021
+	    statusline #ebdbb2
+	    separator #666666
 
-	    focused_workspace  #607280 #617280 #ffffff
-	    active_workspace   #333333 #5f676a #ffffff
-	    inactive_workspace #333333 #222222 #888888
-	    urgent_workspace   #aa0000 #990000 #ffffff
+	    focused_workspace  #1d2021 #1d2021 #ebdbb2
+		active_workspace   #1d2021 #1d2021 #ebdbb2
+		inactive_workspace #504945 #504945 #ebdbb2
+		urgent_workspace   #fb4933 #fb4933 #ebdbb2
         }
         position top
         tray_output primary
@@ -198,9 +198,11 @@ bar {
 }
 
 # Colors
-client.focused #404552 #404552 #ffffff
-client.unfocused #666666 #666666 #ffffff
-client.urgent #aa0000 #990000 #ffffff
+client.unfocused          #665c54 #665c54 #eddbb2 #2e9ef4 #665c54
+client.focused_inactive   #282828 #5f676a #ffffff #484e50 #5f676a
+client.focused            #1d2021 #1d2021 #a89984 #292d2e #222222
+client.urgent             #fb4933 #fb4933 #ebdbb2 #fb4933 #fb4933
+client.placeholder        #000000 #0c0c0c #ffffff #000000 #0c0c0c
 
 # Startup programs
 #exec --no-startup-id nm-applet

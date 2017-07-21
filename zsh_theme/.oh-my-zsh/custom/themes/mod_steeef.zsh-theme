@@ -21,11 +21,11 @@ autoload -Uz vcs_info
 
 #use extended color pallete if available
 if [[ $terminfo[colors] -ge 256 ]]; then
-    turquoise="%F{27}"
-    orange="%F{214}"
-    purple="%F{135}"
+    turquoise="%F{9}"
+    orange="%F{1}"
+    purple="%F{13}"
     hotpink="%F{9}"
-    limegreen="%F{35}"
+    limegreen="%F{3}"
 else
     turquoise="%F{cyan}"
     orange="%F{yellow}"
