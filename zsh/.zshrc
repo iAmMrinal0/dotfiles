@@ -107,3 +107,8 @@ alias e="emacsclient -a '' -c"
 
 alias clone='f () { git clone git@github.com:"$1"/"$2" ; }; f'
 alias cow='f () { cower -df $1 && cd $1; makepkg -sri; cd - ; }; f'
+
+alias prepl="pulp repl"
+alias pbld="pulp build"
+alias prun="pulp run"
+alias pwb="pulp --watch build"
