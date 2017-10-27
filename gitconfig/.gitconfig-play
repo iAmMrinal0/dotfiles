@@ -1,0 +1,12 @@
+[user]
+	name = Mrinal Purohit
+	email = mrinal.purohit@juspay.in
+[core]
+	editor = emacs
+[magit]
+	hideCampaign = true
+[merge]
+    conflictstyle = diff3
+    tool = ediff
+[mergetool.ediff]
+    cmd = emacs -nw -a '' --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"

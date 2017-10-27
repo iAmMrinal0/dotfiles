@@ -1,0 +1,14 @@
+[user]
+	name = Mrinal Purohit
+    email = github@mrinalpurohit.in
+[core]
+	editor = emacs
+[magit]
+	hideCampaign = true
+[merge]
+    conflictstyle = diff3
+    tool = ediff
+[mergetool.ediff]
+    cmd = emacsclient -a '' --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
+[includeIf "gitdir:~/play/"]
+  path = .gitconfig-play
