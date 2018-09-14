@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/warlord/.oh-my-zsh
+  export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -115,3 +115,7 @@ alias pwb="pulp --watch build"
 alias pcb="rm -rf output && pulp build"
 alias pcwb="rm -rf output && pulp --watch build"
 alias pwlb="pulp --watch --before clear build"
+
+set -o ignoreeof
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
