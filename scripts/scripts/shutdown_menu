@@ -114,9 +114,9 @@ menu=(
   [Shutdown]="systemctl poweroff"
   [Reboot]="systemctl reboot"
   [Hibernate]="systemctl hibernate"
-  [Suspend]="zsh /home/warlord/scripts/lock.sh && systemctl suspend"
+  [Suspend]="zsh ~/scripts/lock.sh && systemctl suspend"
   [Halt]="systemctl halt"
-  [Lock]="$HOME/scripts/lock.sh $HOME/Pictures/lock.png"
+  [Lock]="$HOME/scripts/lock.sh"
   [Logout]="i3-msg exit"
   [Cancel]=""
 )
