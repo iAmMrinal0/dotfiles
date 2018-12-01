@@ -12,7 +12,7 @@
 set $mod Mod4
 
 set $font Source Code Pro Medium
-set $size 12px
+set $size 13px
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -29,7 +29,7 @@ font pango: $font $size
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec terminator
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -194,7 +194,7 @@ bar {
         }
         position top
         tray_output primary
-        status_command i3blocks -c ~/.i3/i3block.conf
+        status_command i3blocks -c i3block.conf
 }
 
 # Colors
@@ -205,22 +205,20 @@ client.urgent             #fb4933 #fb4933 #ebdbb2 #fb4933 #fb4933
 client.placeholder        #000000 #0c0c0c #ffffff #000000 #0c0c0c
 
 # Startup programs
-#exec --no-startup-id nm-applet
-exec --no-startup-id wicd-client --tray
-exec --no-startup-id feh --bg-center ~/Pictures/space.jpg
+exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id numlockx on
 exec --no-startup-id xset -b &
 exec --no-startup-id pactl set-sink-volume 0 25%
-exec --no-startup-id emacs --daemon
-exec --no-startup-id rescuetime
 exec --no-startup-id compton -b
-exec --no-startup-id sonarr
 exec --no-startup-id transmission-gtk --minimized
-#exec --no-startup-id indicator-kdeconnect
-exec --no-startup-id i3-msg 'workspace $tag3; exec google-chrome-stable'
-exec systemctl --user enable mpdas.service
-exec systemctl --user start mpdas.service
+
+exec systemctl start --user emacs.service
+exec systemctl start --user rescuetime.service
+exec systemctl start --user dunst.service
+
+# exec systemctl --user enable mpdas.service
+# exec systemctl --user start mpdas.service
 
 # Custom KeyBinds
 bindsym Control+mod1+l exec zsh $HOME/scripts/lock.sh
@@ -229,19 +227,19 @@ bindsym --release Print exec gnome-screenshot -i
 bindsym Control+$mod+l exec $HOME/scripts/shutdown_menu
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # Multimedia keys playback control
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # KB shortcuts when audio keys are unavailable
-bindsym Control+$mod+mod1+Up exec pactl set-sink-volume 0 +5%
-bindsym Control+$mod+mod1+Down exec pactl set-sink-volume 0 -5%
-bindsym Control+$mod+mod1+m exec pactl set-sink-mute 0 toggle
+bindsym Control+$mod+mod1+Up exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym Control+$mod+mod1+Down exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym Control+$mod+mod1+m exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Brightness controls
 bindsym XF86MonBrightnessUp exec light -A 10
@@ -249,16 +247,17 @@ bindsym XF86MonBrightnessDown exec light -U 10
 
 # Emacs
 bindsym XF86HomePage exec emacsclient -a '' -c
+bindsym Control+$mod+e exec emacsclient -a '' -c
 
 # KB shortcuts for media control using playerctl
-#bindsym Control+$mod+mod1+p exec playerctl play-pause
-#bindsym Control+$mod+mod1+Right exec playerctl next
-#bindsym Control+$mod+mod1+Left exec playerctl previous
+bindsym Control+$mod+mod1+p exec playerctl play-pause
+bindsym Control+$mod+mod1+Right exec playerctl next
+bindsym Control+$mod+mod1+Left exec playerctl previous
 
 # KB shortcuts for MPC
-bindsym Control+$mod+mod1+p exec mpc toggle
-bindsym Control+$mod+mod1+Right exec mpc next
-bindsym Control+$mod+mod1+Left exec mpc prev
+# bindsym Control+$mod+mod1+p exec mpc toggle
+# bindsym Control+$mod+mod1+Right exec mpc next
+# bindsym Control+$mod+mod1+Left exec mpc prev
 
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
@@ -266,5 +265,7 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 # KB shortcut to move workspace to other screen
 bindsym Control+$mod+Right move workspace to output right
 bindsym Control+$mod+Left move workspace to output left
+bindsym Control+$mod+Up move workspace to output up
+bindsym Control+$mod+Down move workspace to output down
 
 bindsym $mod+t exec notify-send -t 5000 "`date +%H:%M`" "`date +%A` `date +%d` `date +%B` `date +%Y` - Week `date +%U`"
