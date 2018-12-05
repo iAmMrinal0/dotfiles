@@ -8,7 +8,14 @@
 [merge]
     conflictstyle = diff3
     tool = ediff
+    renormalize = true
 [mergetool.ediff]
     cmd = emacsclient -a '' --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
 [includeIf "gitdir:~/play/"]
   path = .gitconfig-play
+[url "ssh://git@bitbucket.org/"]
+	insteadOf = https://bitbucket.org/
+[url "ssh://git@gitlab.com/"]
+    insteadOf = https://gitlab.com/
+[status]
+	showUntrackedFiles = all
