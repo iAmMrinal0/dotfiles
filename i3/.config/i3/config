@@ -194,7 +194,7 @@ bar {
         }
         position top
         tray_output primary
-        status_command i3blocks -c i3block.conf
+        status_command i3blocks
 }
 
 # Colors
