@@ -105,4 +105,9 @@ alias pwlb="pulp --watch --before clear build"
 
 set -o ignoreeof
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# FZF setup for OSX
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# FZF setup for Linux
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
