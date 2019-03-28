@@ -209,16 +209,11 @@ exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id numlockx on
 exec --no-startup-id xset -b &
-exec --no-startup-id pactl set-sink-volume 0 25%
+exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 25%
 exec --no-startup-id compton -b
 exec --no-startup-id transmission-gtk --minimized
+exec --no-startup-id blueman-applet
 
-exec systemctl start --user emacs.service
-exec systemctl start --user rescuetime.service
-exec systemctl start --user dunst.service
-
-# exec systemctl --user enable mpdas.service
-# exec systemctl --user start mpdas.service
 
 # Custom KeyBinds
 bindsym Control+mod1+l exec zsh $HOME/scripts/lock.sh
