@@ -1,0 +1,13 @@
+[Unit]
+Description=copyq
+Documentation=
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/copyq
+Environment="DISPLAY=:0"
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

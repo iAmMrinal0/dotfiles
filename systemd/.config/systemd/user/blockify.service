@@ -1,0 +1,13 @@
+[Unit]
+Description=blockify
+Documentation=
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/blockify
+Environment="DISPLAY=:0"
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
