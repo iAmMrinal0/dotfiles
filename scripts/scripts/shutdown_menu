@@ -113,7 +113,7 @@ typeset -A menu
 menu=(
   [Shutdown]="systemctl poweroff"
   [Reboot]="systemctl reboot"
-  [Hibernate]="systemctl hibernate"
+  [Hibernate]="sh ~/scripts/lock.sh && systemctl hibernate"
   [Suspend]="sh ~/scripts/lock.sh && systemctl suspend"
   [Halt]="systemctl halt"
   [Lock]="$HOME/scripts/lock.sh"
