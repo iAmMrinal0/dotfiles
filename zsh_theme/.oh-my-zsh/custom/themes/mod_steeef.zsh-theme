@@ -78,6 +78,10 @@ function steeef_chpwd {
 }
 add-zsh-hook chpwd steeef_chpwd
 
+function nix_shell {
+  [ $IN_NIX_SHELL ] && echo '('%F{green}`echo $IN_NIX_SHELL`%f') '
+}
+
 function steeef_precmd {
     if [[ -n "$PR_GIT_UPDATE" ]] ; then
         # check for untracked files or updated submodules, since vcs_info doesn't
@@ -96,5 +100,5 @@ function steeef_precmd {
 add-zsh-hook precmd steeef_precmd
 
 PROMPT=$'
-%{$purple%}%n${PR_RST} at %{$orange%}%m${PR_RST} in %{$limegreen%}%~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)
+%{$purple%}%n${PR_RST} at %{$orange%}%m${PR_RST} in %{$limegreen%}%~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)$(nix_shell)
 $ '
