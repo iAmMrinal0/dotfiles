@@ -25,14 +25,12 @@
     copy_on_selection = True
     cursor_color = "#ebdbb2"
     cursor_shape = ibeam
-    custom_command = tmux -u attach -t play || tmux -u new -s play
     font = Source Code Pro Semi-Bold 10
     foreground_color = "#ebdbb2"
     icon_bell = False
     palette = "#1c1c1c:#fb4933:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#fe8019:#373b41:#d75f5f:#afaf00:#ffaf00:#87afaf:#d787af:#87af87:#ff8700"
     scrollback_infinite = True
     show_titlebar = False
-    use_custom_command = True
     use_system_font = False
   [[External]]
     background_color = "#1d2021"
