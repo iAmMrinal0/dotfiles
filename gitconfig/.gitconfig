@@ -1,10 +1,10 @@
 [user]
-	name = Mrinal Purohit
+    name = Mrinal Purohit
     email = github@mrinalpurohit.in
 [core]
-	editor = emacs
+    editor = emacs
 [magit]
-	hideCampaign = true
+    hideCampaign = true
 [merge]
     conflictstyle = diff3
     tool = ediff
@@ -13,9 +13,11 @@
     cmd = emacsclient -a '' --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
 [includeIf "gitdir:~/play/"]
   path = .gitconfig-play
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
 [url "ssh://git@bitbucket.org/"]
-	insteadOf = https://bitbucket.org/
+    insteadOf = https://bitbucket.org/
 [url "ssh://git@gitlab.com/"]
     insteadOf = https://gitlab.com/
 [status]
-	showUntrackedFiles = all
+    showUntrackedFiles = all
