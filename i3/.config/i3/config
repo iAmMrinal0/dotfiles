@@ -135,12 +135,10 @@ bindsym $mod+Shift+9 move container to workspace $tag9; workspace $tag9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # assign to workspaces
-# assign [class="jetbrains-pycharm-ce"] $tag2
 assign [class="Emacs"] $tag2
-# assign [class="Rhythmbox"] $tag4
 assign [class="Vlc"] $tag4
 assign [class="Slack"] $tag5
-
+for_window [class="Spotify"] move to workspace $tag4
 for_window [class="^.*"] border pixel 0
 
 # reload the configuration file
@@ -181,16 +179,16 @@ hide_edge_borders both
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	font pango: $font, FontAwesome $size
+    font pango: $font, FontAwesome $size
         colors {
-	    background #1d2021
-	    statusline #ebdbb2
-	    separator #666666
+        background #1d2021
+        statusline #ebdbb2
+        separator #666666
 
-	    focused_workspace  #1d2021 #1d2021 #ebdbb2
-		active_workspace   #1d2021 #1d2021 #ebdbb2
-		inactive_workspace #504945 #504945 #ebdbb2
-		urgent_workspace   #fb4933 #fb4933 #ebdbb2
+        focused_workspace  #1d2021 #1d2021 #ebdbb2
+        active_workspace   #1d2021 #1d2021 #ebdbb2
+        inactive_workspace #504945 #504945 #ebdbb2
+        urgent_workspace   #fb4933 #fb4933 #ebdbb2
         }
         position top
         tray_output primary
@@ -205,10 +203,9 @@ client.urgent             #fb4933 #fb4933 #ebdbb2 #fb4933 #fb4933
 client.placeholder        #000000 #0c0c0c #ffffff #000000 #0c0c0c
 
 # Startup programs
-exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id numlockx on
-exec --no-startup-id xset -b &
+exec --no-startup-id xset -b
 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 25%
 exec --no-startup-id compton -b
 exec --no-startup-id transmission-gtk --minimized
