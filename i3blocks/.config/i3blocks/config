@@ -21,8 +21,7 @@
 # urgent
 
 # Global properties
-# command=/usr/lib/i3blocks/$BLOCK_NAME # Arch config
-command=/run/current-system/sw/libexec/i3blocks/$BLOCK_NAME # NixOS config
+command=~/scripts/i3blocks/$BLOCK_NAME/$BLOCK_NAME
 separator_block_width=25
 markup=pango
 
@@ -75,8 +74,8 @@ interval=10
 label=
 interval=1
 
-[battery]
-label=⚡
+[battery2]
+# label=⚡
 interval=15
 
 # [time]
