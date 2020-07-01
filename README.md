@@ -1,5 +1,6 @@
 # dotfiles
 
+**PS:** All configs that I use have been migrated to use `nix` and those now reside at [iammrinal0/nix-config](https://github.com/iammrinal0/nix-config). As such this repository is archived and maybe one day be replaced by the nix configs but until then this will remain for historical purposes.
 
 The configs for the following programs are in this repo:
 
