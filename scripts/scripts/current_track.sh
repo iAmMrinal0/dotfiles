@@ -1,18 +1,21 @@
 #! /usr/bin/env bash
 
+PLAYER=spotify
+ARGS="--player=$PLAYER"
+
 py_manage() {
-    format=$(playerctl --player=spotify metadata --format='{{status}}')
+    format=$(playerctl $ARGS metadata --format='{{status}}')
     if [ "$format" = "Playing" ]
       then
-       echo $(playerctl --player=spotify  metadata --format='{{title}} - {{album}}')
+       playerctl $ARGS metadata --format='{{title}} - {{artist}}'
     else
-       echo $format
+       echo "$format"
     fi
 }
 
 case $BLOCK_BUTTON in
-    3) playerctl play-pause --player=spotify ;; # right click, pause/unpause
-    4) playerctl prev       --player=spotify ;; # scroll up, previous
-    5) playerctl next       --player=spotify ;; # scroll down, next
+    3) playerctl play-pause $ARGS ;; # right click, pause/unpause
+    4) playerctl prev       $ARGS ;; # scroll up, previous
+    5) playerctl next       $ARGS ;; # scroll down, next
     *) py_manage ;;
 esac

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-lock=$HOME/Pictures/lock.png
+lock=$HOME/dotfiles/locks/lock.png
 scrot /tmp/screen.png
 convert /tmp/screen.png -scale 10% -scale 1000% /tmp/screen.png
 [[ -f $lock ]] && convert /tmp/screen.png $lock -gravity center -composite -matte /tmp/screen.png

@@ -173,6 +173,8 @@ function ask_confirmation() {
   fi
 }
 
+echo ${menu[${selection}]}
+
 if [[ $? -eq 0 && ! -z ${selection} ]]; then
   if [[ "${enable_confirmation}" = true && \
         ${menu_confirm} =~ (^|[[:space:]])"${selection}"($|[[:space:]]) ]]; then

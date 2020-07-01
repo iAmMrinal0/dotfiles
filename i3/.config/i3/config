@@ -134,6 +134,8 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace $tag9; workspace $tag9
 bindsym $mod+Shift+0 move container to workspace 10
 
+bindsym $mod+Tab workspace back_and_forth
+
 # assign to workspaces
 assign [class="Emacs"] $tag2
 assign [class="Vlc"] $tag4
@@ -261,3 +263,5 @@ bindsym Control+$mod+Up move workspace to output up
 bindsym Control+$mod+Down move workspace to output down
 
 bindsym $mod+t exec notify-send -t 5000 "`date +%H:%M`" "`date +%A` `date +%d` `date +%B` `date +%Y` - Week `date +%U`"
+
+bindsym Control+$mod+k exec keepmenu

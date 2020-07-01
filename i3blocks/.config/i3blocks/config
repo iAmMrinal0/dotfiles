@@ -28,7 +28,7 @@ markup=pango
 
 [song]
 command=~/scripts/current_track.sh
-label=
+label=
 interval=1
 color=#87AFAF
 
